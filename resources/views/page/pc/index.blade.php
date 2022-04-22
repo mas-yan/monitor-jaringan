@@ -34,8 +34,13 @@
                             <td>{{ $client->name }}</td>
                             <td>{{ $client->ip }}</td>
                             <td>{{ $client->status }}</td>
-                            <td><a href="{{ route('list-pc.edit', $client->id) }}" class="btn btn-warning">Edit</a> | <a
-                                    href="{{ route('list-pc.destroy', $client->id) }}" class="btn btn-danger">Hapus</a>
+                            <td>
+                                <form action="{{ route('list-pc.destroy', $client->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <a href="{{ route('list-pc.edit', $client->id) }}" class="btn btn-warning">Edit</a> |
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

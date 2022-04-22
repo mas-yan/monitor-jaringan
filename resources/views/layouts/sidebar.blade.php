@@ -13,21 +13,30 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="{{ request()->is('list-pc') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('list-pc.index') }}"><i class="fas fa-fire"></i>
+                    href="{{ route('list-pc.index') }}"><i class="fas fa-bars"></i>
                     <span>List Pc</span></a>
             </li>
-            <li class=""><a class="nav-link" href="{{ route('dashboard') }}"><i
-                        class="fas fa-fire"></i>
+            {{-- <li class=""><a class="nav-link" href="{{ route('dashboard') }}"><i
+                        class="fas fa-eye"></i>
                     <span>Monitoring</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Pengaturan</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="layout-default.html">Log Laporan</a></li>
                     <li><a class="nav-link {{ request()->is('list-pc/create') ? 'active' : '' }}"
                             href="{{ route('list-pc.create') }}">Tambah Pc</a></li>
-                    <li><a class="nav-link" href="layout-top-navigation.html">Logout</a></li>
+                    <li>
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>
