@@ -24,7 +24,8 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Pengaturan</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="layout-default.html">Log Laporan</a></li>
+                    <li><a class="nav-link {{ request()->is('log') ? 'active' : '' }}" href="{{ route('log') }}">Log
+                            Laporan</a></li>
                     <li><a class="nav-link {{ request()->is('list-pc/create') ? 'active' : '' }}"
                             href="{{ route('list-pc.create') }}">Tambah Pc</a></li>
                     <li>
